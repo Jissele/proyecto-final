@@ -7,7 +7,8 @@
     margin: 0;
     background-color: #f0f2f5;
 }
-.bg-navbar {
+.textCard {
+    font-style: italic;
 }
 .navbar {
     display: flex;
@@ -27,12 +28,14 @@
     border: none;
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-auto-rows: auto;
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
     margin-top: 70px;
 }
-
+.menu{
+    display: flex;
+    justify-content: center;
+}
 .logo {
     height: 40px;
     width: 40px;

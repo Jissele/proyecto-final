@@ -1,28 +1,48 @@
-import React from 'react';
-import { Card } from 'react-bootstrap';
+import React from "react";
 
-const Cardb = ({ image, name, fill, price, boton1, boton2, boton3 }) => {
-  return (
-    <div>
-      <Card style={{ width: '100%' }}>
-        <Card.Img variant="top" src={image} className="border-bottom p-2" />
-        <Card.Body>
-          <Card.Title style={{ height: '48px' }}>
-            <b>{name}</b>
-          </Card.Title>
-          <Card.Text className="border-bottom p-2">
-            <h5>
-              <b>${price}</b>
-            </h5>
-          </Card.Text>
-          <div className="d-flex mx-1 justify-content-center">
-            {boton1}
-            {boton2}
-            {boton3}
-          </div>
-        </Card.Body>
-      </Card>
-    </div>
-  );
+const Cardb = ({
+    image,
+    name,
+    fill,
+    gender,
+    duracion,
+    estreno,
+    price,
+    boton1,
+    boton2,
+    boton3,
+}) => {
+    return (
+        <div
+            className="card"
+            style={{ width: "16em", minHeight: "25em", overflow: "hidden" }}
+        >
+            <img
+                src={image}
+                className="card-img-top"
+                alt={name}
+                style={{ objectFit: "fill", height: "13em", width: "100%" }}
+            />
+            <div className="card-body">
+                <h5 className="card-title textCard">{name}</h5>
+                <p className="textCard">
+                    {new Intl.NumberFormat("es-CL", {
+                        style: "currency",
+                        currency: "CLP",
+                    }).format(price)}
+                </p>
+            </div>
+            <ul className="list-group list-group-flush textCard">
+                <li className="list-group-item">Año: {estreno}</li>
+                <li className="list-group-item">Genero: {gender}</li>
+                <li className="list-group-item">Duración: {duracion}</li>
+            </ul>
+            <div className="card-footer d-flex justify-content-center">
+                {boton1}
+                {boton2}
+            </div>
+        </div>
+    );
 };
+
 export default Cardb;
