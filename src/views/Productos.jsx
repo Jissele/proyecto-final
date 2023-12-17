@@ -31,27 +31,32 @@ const Productos = () => {
   };
 
   return (
-    <div>
+    <>
       <div className="find-product">
         <form className="search" action="">
-          <Form.Select aria-label="Default select example" onChange={handleSortChange}>
-            <option value="id"> Ordenar </option>
-            <option value="price-lowest">Precio menor a mayor</option>
-            <option value="price-highest">Precio mayor a menor</option>
-          </Form.Select>
-          <Form.Control placeholder="Buscar" onChange={filtrarProducto} />
+        <Form.Select aria-label="Default select example" onChange={handleSortChange}>
+        <option value="id"> Ordenar </option>
+        <option value="price-lowest">Precio menor a mayor</option>
+        <option value="price-highest">Precio mayor a menor</option>
+        </Form.Select>
+        <Form.Control placeholder="Buscar" onChange={filtrarProducto} />
         </form>
       </div>
+      <div  className='menu'>
+    <div className='gallery'>
       <div className="galeria  p-3 mt-5">
+        
         {productos.map((productos) => (
           <div key={productos.nombre} className="card-g" style={{ width: '100%' }}>
             <Cardb
               image={productos.imagen}
               name={productos.nombre}
+              estreno={productos.año}
+              gender={productos.genero}
+              duracion={productos.tiempo}
               price={productos.price}
               boton1={
                 <Link to={`/producto/${productos.id}`}>
-                {/* // <Link to= "/login" > */}
                   <Button variant="primary" className="mx-2 bg-primary border border-0">
                     Detalle
                   </Button>
@@ -74,7 +79,9 @@ const Productos = () => {
           </div>
         ))}
       </div>
+      </div>
     </div>
+    </>
   );
 };
 
